@@ -29,6 +29,7 @@ public class StudentMarksheetController {
     @Autowired
     private StudentMarksheetService service;
     
+//    http://localhost:8080/api/StudentMarksheet
     @GetMapping("/StudentMarksheet")
     public List<StudentMarksheet> getAllStudentMarksheet(){
         return service.getAllStudentMarksheet();

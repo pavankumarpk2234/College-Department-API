@@ -29,6 +29,7 @@ public class FacultyAttendanceController {
     @Autowired
     private FacultyAttendanceService service;
     
+//    http://localhost:8080/api/FacultyAttendance
     @GetMapping("/FacultyAttendance")
     public List<FacultyAttendance> getAllFacultyAttendance(){
         return service.getAllFacultyAttendance();

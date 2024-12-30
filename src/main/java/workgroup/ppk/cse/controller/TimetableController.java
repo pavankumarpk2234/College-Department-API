@@ -30,6 +30,7 @@ public class TimetableController {
     @Autowired
     private TimetableService service;
     
+//    http://localhost:8080/api/Timetable
     @GetMapping("/Timetable")
     public List<Timetable> getAllTimetable(){
         return service.getAllTimetable();

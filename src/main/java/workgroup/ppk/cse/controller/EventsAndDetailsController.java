@@ -30,6 +30,7 @@ public class EventsAndDetailsController {
     @Autowired
     private EventsAndDetailsService service;
     
+    // http://localhost:8080/api/Events
     @GetMapping("/Events")
     public List<EventsAndDetails> getAllDepartmentNews(){
         return service.getAllEventsAndDetails();

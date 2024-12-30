@@ -30,6 +30,8 @@ public class FacultyDetailsController {
     @Autowired
     private FacultyDetailsService service;
     
+    
+//    http://localhost:8080/api/FacultyDetails
     @GetMapping("/FacultyDetails")
     public List<FacultyDetails> getAllFacultyDetails(){
         return service.getAllFacultyDetails();
