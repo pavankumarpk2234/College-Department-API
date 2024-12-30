@@ -1,9 +1,5 @@
 # College-Department-API
-<h1>College Department API</h1>
 
-<h3>NOTE #3: Please read the <a href="https://github.com/ianshulx/React-projects-for-beginners/blob/main/Repo_Size_Guidelines">Repo-Size Management Guidelines</a>.</h3>
-
-  
 <h3>Description</h3>
 
 College Department API which will store and retrieve data from database. Data like Department News, Events, Faculty Attendance, Faculty Details, Student Attendance, Student Details, Student Marksheet, Timetable. through their API links
@@ -29,5 +25,3 @@ git clone https://github.com/pavankumarpk2234/College-Department-API.git
 7. Run the Server
 
 8. Run the file DepartmentApiApplication.java
-
-.Create a _new Branch_
