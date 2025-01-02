@@ -38,12 +38,12 @@ public class FacultyDetailsController {
     }
     
     @GetMapping("/FacultyDetails/{id}")
-    public ResponseEntity<FacultyDetails> getFacultyDetails(@PathVariable int id){
+    public ResponseEntity<FacultyDetails> getFacultyDetails(@PathVariable String id){
         
-        FacultyDetails product = service.getFacultyDetailsById(id);
+        FacultyDetails fd = service.getFacultyDetailsById(id);
         
-        if(product != null)
-            return new ResponseEntity<>(product, HttpStatus.OK); 
+        if(fd != null)
+            return new ResponseEntity<>(fd, HttpStatus.OK); 
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

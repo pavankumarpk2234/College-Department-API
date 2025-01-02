@@ -17,7 +17,7 @@ import workgroup.ppk.cse.model.Timetable;
 
 @Repository
 // Type of class or Type of entity and Primary key Type  JpaRepository<Product, Integer>
-public interface TimetableRepo extends JpaRepository<Timetable, Integer> {
+public interface TimetableRepo extends JpaRepository<Timetable, String> {
     
     @Query("SELECT t from Timetable t WHERE "+
             "LOWER(t.academicYear) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +

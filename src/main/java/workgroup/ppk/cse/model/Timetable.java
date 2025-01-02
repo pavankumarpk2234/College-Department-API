@@ -81,6 +81,12 @@ public class Timetable {
     private String r7c6;
     private String r7c7;
     private String r7c8;
+
+    public Timetable(String academicYear, String classTeacher) {
+        this.academicYear = academicYear;
+        this.classTeacher = classTeacher;
+    }
+    
     
 }
 

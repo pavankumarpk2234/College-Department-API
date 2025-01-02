@@ -36,4 +36,11 @@ public class StudentMarksheet {
     private char section;
     private String subjectName;
     private int marks;
+
+    public StudentMarksheet(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    
 }

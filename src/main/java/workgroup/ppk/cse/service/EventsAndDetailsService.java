@@ -25,8 +25,8 @@ public class EventsAndDetailsService {
         return repo.findAll();
     }
 
-    public EventsAndDetails getEventsAndDetailsById(int id) {
-        return repo.findById(id).orElse(null);
+    public EventsAndDetails getEventsAndDetailsById(String id) {
+        return repo.findById(id).orElse(new EventsAndDetails("Error", "No data found with "+id));
     }
 
 //    public List<EventsAndDetails> searchEventsAndDetails(String keyword) {

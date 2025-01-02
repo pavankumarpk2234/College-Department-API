@@ -25,8 +25,8 @@ public class TimetableService {
         return repo.findAll();
     }
 
-    public Timetable getTimetableById(int id) {
-        return repo.findById(id).orElse(null);
+    public Timetable getTimetableById(String id) {
+        return repo.findById(id).orElse(new Timetable("Error", "No data found with "+id));
     }
 
     public List<Timetable> searchTimetable(String keyword) {

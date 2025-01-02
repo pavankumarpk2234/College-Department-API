@@ -32,4 +32,10 @@ public class EventsAndDetails {
     private int totalParticipation;
     private int winners;
     private Date date;
+
+    public EventsAndDetails(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+    
 }

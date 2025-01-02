@@ -41,4 +41,11 @@ public class StudentDetails {
     private char section;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date joiningDate;
+
+    public StudentDetails(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    
 }

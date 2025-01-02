@@ -49,13 +49,15 @@ public class DepartmentNewsController {
 //        return "DepartmentNews";
 //    }
     
+    
+//    http://localhost:8080/api/DepartmentNews/Parvathi
     @GetMapping("/DepartmentNews/{id}")
-    public ResponseEntity<DepartmentNews> getDepartmentNews(@PathVariable int id){
+    public ResponseEntity<DepartmentNews> getDepartmentNews(@PathVariable String id){
         
-        DepartmentNews product = service.getDepartmentNewsById(id);
+        DepartmentNews dn = service.getDepartmentNewsById(id);
         
-        if(product != null)
-            return new ResponseEntity<>(product, HttpStatus.OK); 
+        if(dn != null)
+            return new ResponseEntity<>(dn, HttpStatus.OK); 
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

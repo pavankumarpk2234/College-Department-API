@@ -37,12 +37,12 @@ public class EventsAndDetailsController {
     }
     
     @GetMapping("/EventsAndDetails/{id}")
-    public ResponseEntity<EventsAndDetails> getEventsAndDetails(@PathVariable int id){
+    public ResponseEntity<EventsAndDetails> getEventsAndDetails(@PathVariable String id){
         
-        EventsAndDetails product = service.getEventsAndDetailsById(id);
+        EventsAndDetails ed = service.getEventsAndDetailsById(id);
         
-        if(product != null)
-            return new ResponseEntity<>(product, HttpStatus.OK); 
+        if(ed != null)
+            return new ResponseEntity<>(ed, HttpStatus.OK); 
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

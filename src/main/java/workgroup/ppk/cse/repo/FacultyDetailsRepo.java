@@ -17,7 +17,7 @@ import workgroup.ppk.cse.model.FacultyDetails;
 
 @Repository
 // Type of class or Type of entity and Primary key Type  JpaRepository<Product, Integer>
-public interface FacultyDetailsRepo extends JpaRepository<FacultyDetails, Integer> {
+public interface FacultyDetailsRepo extends JpaRepository<FacultyDetails, String> {
     
     @Query("SELECT f from FacultyDetails f WHERE "+
             "LOWER(f.id) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +

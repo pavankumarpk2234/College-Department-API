@@ -37,12 +37,12 @@ public class TimetableController {
     }
     
     @GetMapping("/Timetable/{id}")
-    public ResponseEntity<Timetable> getStudentDetails(@PathVariable int id){
+    public ResponseEntity<Timetable> getStudentDetails(@PathVariable String id){
         
-        Timetable product = service.getTimetableById(id);
+        Timetable tb = service.getTimetableById(id);
         
-        if(product != null)
-            return new ResponseEntity<>(product, HttpStatus.OK); 
+        if(tb != null)
+            return new ResponseEntity<>(tb, HttpStatus.OK); 
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

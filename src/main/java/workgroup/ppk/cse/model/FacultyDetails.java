@@ -38,4 +38,10 @@ public class FacultyDetails {
     private String address;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date joiningDate;
+
+    public FacultyDetails(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
 }

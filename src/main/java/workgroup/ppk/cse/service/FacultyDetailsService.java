@@ -25,8 +25,8 @@ public class FacultyDetailsService {
         return repo.findAll();
     }
 
-    public FacultyDetails getFacultyDetailsById(int id) {
-        return repo.findById(id).orElse(null);
+    public FacultyDetails getFacultyDetailsById(String id) {
+        return repo.findById(id).orElse(new FacultyDetails("Error", "No data found with "+id));
     }
 
     public List<FacultyDetails> searchFacultyDetails(String keyword) {

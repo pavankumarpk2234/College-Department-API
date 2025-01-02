@@ -17,7 +17,7 @@ import workgroup.ppk.cse.model.EventsAndDetails;
 
 @Repository
 // Type of class or Type of entity and Primary key Type  JpaRepository<Product, Integer>
-public interface EventsAndDetailsRepo extends JpaRepository<EventsAndDetails, Integer> {
+public interface EventsAndDetailsRepo extends JpaRepository<EventsAndDetails, String> {
     
     @Query("SELECT e from EventsAndDetails e WHERE "+
             "LOWER(e.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +

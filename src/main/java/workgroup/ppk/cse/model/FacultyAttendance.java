@@ -32,4 +32,10 @@ public class FacultyAttendance {
     private int year;
     private String month;
     private int attendance;
+
+    public FacultyAttendance(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
 }

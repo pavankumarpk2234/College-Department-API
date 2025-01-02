@@ -25,8 +25,8 @@ public class DepartmentNewsService {
         return repo.findAll();
     }
 
-    public DepartmentNews getDepartmentNewsById(int id) {
-        return repo.findById(id).orElse(null);
+    public DepartmentNews getDepartmentNewsById(String id) {
+        return repo.findById(id).orElse(new DepartmentNews("Error", "No data found with "+id));
     }
 
     public List<DepartmentNews> searchDepartmentNews(String keyword) {

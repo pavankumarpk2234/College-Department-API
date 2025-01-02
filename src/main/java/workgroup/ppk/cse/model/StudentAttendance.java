@@ -35,4 +35,11 @@ public class StudentAttendance {
     private int year;
     private String month;
     private int attendance;
+
+    public StudentAttendance(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    
+    
 }

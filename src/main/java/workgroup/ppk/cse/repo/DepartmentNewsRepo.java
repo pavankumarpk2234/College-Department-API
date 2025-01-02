@@ -17,7 +17,7 @@ import workgroup.ppk.cse.model.DepartmentNews;
 
 @Repository
 // Type of class or Type of entity and Primary key Type  JpaRepository<Product, Integer>
-public interface DepartmentNewsRepo extends JpaRepository<DepartmentNews, Integer> {
+public interface DepartmentNewsRepo extends JpaRepository<DepartmentNews, String> {
     
     @Query("SELECT d from DepartmentNews d WHERE "+
             "LOWER(d.title) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
