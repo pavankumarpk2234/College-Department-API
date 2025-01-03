@@ -24,4 +24,6 @@ public class DepartmentNews {
     @Id // id is primary key in table.
     private String title;
     private String description;
+    
+    
 }

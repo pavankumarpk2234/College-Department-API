@@ -23,4 +23,8 @@ public interface DepartmentNewsRepo extends JpaRepository<DepartmentNews, String
             "LOWER(d.title) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(d.description) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<DepartmentNews> searchDepartmentNews(String keyword);
+    
+    @Query("SELECT d from DepartmentNews d WHERE "+
+            "LOWER(d.title) = :keyword")
+    DepartmentNews findByID(String keyword);
 }

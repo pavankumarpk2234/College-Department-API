@@ -20,7 +20,7 @@ public class DepartmentNewsService {
     
     @Autowired
     private DepartmentNewsRepo repo;
-
+    
     public List<DepartmentNews> getAllDepartmentNews() {
         return repo.findAll();
     }
@@ -28,9 +28,33 @@ public class DepartmentNewsService {
     public DepartmentNews getDepartmentNewsById(String id) {
         return repo.findById(id).orElse(new DepartmentNews("Error", "No data found with "+id));
     }
+    
+    public DepartmentNews addDepartmentNews(DepartmentNews departmentNews) {
+        return repo.save(departmentNews);
+    }
+    
+    public DepartmentNews deleteDepartmentNews(String id1) {
+        String id = id1.toLowerCase();
+        DepartmentNews dn = (DepartmentNews) repo.findByID(id);
+        
+        if(dn == null)
+            return null;
+        repo.deleteById(id);
+        return new DepartmentNews("Success", "Data has been deleted");
+    }
 
     public List<DepartmentNews> searchDepartmentNews(String keyword) {
         return repo.searchDepartmentNews(keyword);
     }
-    
+
+    public DepartmentNews updateDepartmentNews(String id1, DepartmentNews departmentNews) {
+        String id = id1.toLowerCase();
+        DepartmentNews dn = (DepartmentNews) repo.findByID(id);
+        
+        if(dn == null)
+            return null;
+        dn.setTitle(departmentNews.getTitle());
+        dn.setDescription(departmentNews.getDescription());
+        return repo.save(departmentNews);
+    }
 }
