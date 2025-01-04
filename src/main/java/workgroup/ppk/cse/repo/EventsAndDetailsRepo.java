@@ -23,4 +23,8 @@ public interface EventsAndDetailsRepo extends JpaRepository<EventsAndDetails, St
             "LOWER(e.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(e.description) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<EventsAndDetails> searchEventsAndDetails(String keyword);
+    
+    @Query("SELECT e from EventsAndDetails e WHERE "+
+            "LOWER(e.name) = :keyword")
+    EventsAndDetails findByID(String keyword);
 }

@@ -4,6 +4,7 @@
  */
 package workgroup.ppk.cse.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.util.Date;
@@ -31,6 +32,7 @@ public class EventsAndDetails {
     private int fourthYear;
     private int totalParticipation;
     private int winners;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
 
     public EventsAndDetails(String name, String description) {

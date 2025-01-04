@@ -26,9 +26,41 @@ public class EventsAndDetailsService {
     }
 
     public EventsAndDetails getEventsAndDetailsById(String id) {
-        return repo.findById(id).orElse(new EventsAndDetails("Error", "No data found with "+id));
+        return repo.findById(id).orElse(null);
     }
 
+    public EventsAndDetails addEventsAndDetails(EventsAndDetails eventsAndDetails) {
+        return repo.save(eventsAndDetails);
+    }
+    
+    public EventsAndDetails updateEventsAndDetails(String id1, EventsAndDetails eventsAndDetails) {
+        String id = id1.toLowerCase();
+        EventsAndDetails ed = (EventsAndDetails) repo.findByID(id);
+        
+        if(ed == null)
+            return null;
+        ed.setName(eventsAndDetails.getName());
+        ed.setDescription(eventsAndDetails.getDescription());
+        ed.setFirstYear(eventsAndDetails.getFirstYear());
+        ed.setSecondYear(eventsAndDetails.getSecondYear());
+        ed.setThirdYear(eventsAndDetails.getThirdYear());
+        ed.setFourthYear(eventsAndDetails.getFourthYear());
+        ed.setTotalParticipation(eventsAndDetails.getTotalParticipation());
+        ed.setWinners(eventsAndDetails.getWinners());
+        ed.setDate(eventsAndDetails.getDate());
+        return repo.save(eventsAndDetails);
+    }
+    
+    public EventsAndDetails deleteEventsAndDetails(String id1) {
+        String id = id1.toLowerCase();
+        EventsAndDetails ed = (EventsAndDetails) repo.findByID(id);
+        
+        if(ed == null)
+            return null;
+        repo.deleteById(id);
+        return new EventsAndDetails("", "");
+    }
+    
 //    public List<EventsAndDetails> searchEventsAndDetails(String keyword) {
 //        return repo.searchEventsAndDetails(keyword);
 //    }
