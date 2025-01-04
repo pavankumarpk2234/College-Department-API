@@ -101,8 +101,8 @@ public class DepartmentNewsController {
     // http://localhost:8080/api/DepartmentNews/search?keyword=pavan
     @GetMapping("/DepartmentNews/search")
     public ResponseEntity<List<DepartmentNews>> searchDepartmentNews(@RequestParam String keyword){
-        List<DepartmentNews> departmentnews = service.searchDepartmentNews(keyword);
+        List<DepartmentNews> ldn = service.searchDepartmentNews(keyword);
 //        System.out.println("Searching with " + keyword);
-        return new ResponseEntity<>(departmentnews, HttpStatus.OK);
+        return new ResponseEntity<>(ldn, HttpStatus.OK);
     }
 }
