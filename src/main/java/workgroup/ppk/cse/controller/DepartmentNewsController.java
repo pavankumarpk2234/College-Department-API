@@ -4,7 +4,6 @@
  */
 package workgroup.ppk.cse.controller;
 
-import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import workgroup.ppk.cse.model.DepartmentNews;
 import workgroup.ppk.cse.service.DepartmentNewsService;
@@ -65,7 +63,7 @@ public class DepartmentNewsController {
         if(dn != null)
             return new ResponseEntity<>(dn, HttpStatus.OK); 
         else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new DepartmentNews("Error", "No data found with "+id),HttpStatus.NOT_FOUND);
     }
     
 //    http://localhost:8080/api/DepartmentNews
@@ -77,26 +75,26 @@ public class DepartmentNewsController {
     
 //    http://localhost:8080/api/DepartmentNews/Parvathi
     @PutMapping("/DepartmentNews/{id}")
-    public ResponseEntity<String> updateDepartmentNews(@PathVariable String id, @RequestBody DepartmentNews departmentNews){
+    public ResponseEntity<DepartmentNews> updateDepartmentNews(@PathVariable String id, @RequestBody DepartmentNews departmentNews){
         DepartmentNews dn = null;
         dn = service.updateDepartmentNews(id, departmentNews);
 //        System.out.println(dn.toString());
         if(dn != null)
-            return new ResponseEntity<>("Updated", HttpStatus.OK);
+            return new ResponseEntity<>(new DepartmentNews("Success", "Data has been Updated"), HttpStatus.OK);
         else
-            return new ResponseEntity<>("Record with "+id+" not found", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new DepartmentNews("Error", "No data found with "+id), HttpStatus.BAD_REQUEST);
     }
     
 //    http://localhost:8080/api/DepartmentNews/Parvathi
     @DeleteMapping("/DepartmentNews/{id}")
-    public ResponseEntity<String> deleteDepartmentNews(@PathVariable String id){
+    public ResponseEntity<DepartmentNews> deleteDepartmentNews(@PathVariable String id){
         DepartmentNews dn = service.deleteDepartmentNews(id);
         if(dn != null){
-            service.deleteDepartmentNews(id);
-            return new ResponseEntity<>("Deleted", HttpStatus.OK);
+//            service.deleteDepartmentNews(id);
+            return new ResponseEntity<>(new DepartmentNews("Success", "Data has been deleted"), HttpStatus.OK);
         }
         else
-            return new ResponseEntity<>("Data not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new DepartmentNews("Error", "No data found with "+id), HttpStatus.NOT_FOUND);
     }
     
     // insert into department_news values("Pavan Kumar", "I am a Java Developer");

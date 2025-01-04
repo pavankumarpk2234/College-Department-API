@@ -26,7 +26,7 @@ public class DepartmentNewsService {
     }
 
     public DepartmentNews getDepartmentNewsById(String id) {
-        return repo.findById(id).orElse(new DepartmentNews("Error", "No data found with "+id));
+        return repo.findById(id).orElse(null);
     }
     
     public DepartmentNews addDepartmentNews(DepartmentNews departmentNews) {
@@ -40,7 +40,7 @@ public class DepartmentNewsService {
         if(dn == null)
             return null;
         repo.deleteById(id);
-        return new DepartmentNews("Success", "Data has been deleted");
+        return new DepartmentNews("", "");
     }
 
     public List<DepartmentNews> searchDepartmentNews(String keyword) {
