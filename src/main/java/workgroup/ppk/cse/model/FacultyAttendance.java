@@ -4,14 +4,11 @@
  */
 package workgroup.ppk.cse.model;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.NoArgsConstructor;  
 /**
  *
  * @author WE ARE ANONYMOUS
@@ -23,19 +20,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // Create constructor with no arguments
 public class FacultyAttendance {
     
-    @Id // id is primary key in table.
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sNo;
-    
-    private String id;
+    @EmbeddedId
+    private FacultyAttendanceComposite compositeKey;
     private String name;
-    private int year;
-    private String month;
     private int attendance;
 
-    public FacultyAttendance(String id, String name) {
-        this.id = id;
+//    public FacultyAttendance(String id, String name) {
+//        this.id = id;
+//        this.name = name;
+//    }
+
+    public FacultyAttendance(String name) {
         this.name = name;
     }
+    
     
 }
