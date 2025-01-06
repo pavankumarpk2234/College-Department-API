@@ -4,8 +4,10 @@
  */
 package workgroup.ppk.cse.repo;
 
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import workgroup.ppk.cse.model.FacultyAttendance;
@@ -35,9 +37,11 @@ public interface FacultyAttendanceRepo extends JpaRepository<FacultyAttendance, 
             "LOWER(f.compositeKey.month) = :month")
     FacultyAttendance findByIdYearMonth(String id, int year, String month);
     
+    @Modifying
+    @Transactional
     @Query("DELETE from FacultyAttendance f WHERE "+
             "LOWER(f.compositeKey.id) = :id AND "+
             "f.compositeKey.year = :year AND "+
             "LOWER(f.compositeKey.month) = :month")
-    FacultyAttendance deleteByIdYearMonth(String id, int year, String month);
+    void deleteByIdYearMonth(String id, int year, String month);
 }
