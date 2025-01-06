@@ -30,14 +30,14 @@ public interface FacultyAttendanceRepo extends JpaRepository<FacultyAttendance, 
     List<FacultyAttendance> findByID(String keyword);
     
     @Query("SELECT f from FacultyAttendance f WHERE "+
-            "LOWER(f.compositeKey.id) = :id "+
-            "f.compositeKey.year = :year "+
+            "LOWER(f.compositeKey.id) = :id AND "+
+            "f.compositeKey.year = :year AND "+
             "LOWER(f.compositeKey.month) = :month")
     FacultyAttendance findByIdYearMonth(String id, int year, String month);
     
     @Query("DELETE from FacultyAttendance f WHERE "+
-            "LOWER(f.compositeKey.id) = :id "+
-            "f.compositeKey.year = :year "+
+            "LOWER(f.compositeKey.id) = :id AND "+
+            "f.compositeKey.year = :year AND "+
             "LOWER(f.compositeKey.month) = :month")
     FacultyAttendance deleteByIdYearMonth(String id, int year, String month);
 }
